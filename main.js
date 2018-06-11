@@ -29,6 +29,22 @@ const profitBySalesPerson = cars.map(car => {
     }
 })
 
+const totalProfitBySalesPerson = {};
+for (var i = 0, j = profitBySalesPerson.length; i  < j; i++) {
+    if (!totalProfitBySalesPerson[profitBySalesPerson[i]["salesPerson"]]) {
+        totalProfitBySalesPerson[profitBySalesPerson[i]["salesPerson"]] = 0;
+    }
+
+    totalProfitBySalesPerson[profitBySalesPerson[i]["salesPerson"]] += profitBySalesPerson[i]["salesIndividual"];
+}
+    
+    
+
+// const totalProfitBySalesPerson = {};
+// for (var i = 0, j = profitBySalesPerson.length; i  < j; i++) {
+//     totalProfitBySalesPerson[profitBySalesPerson[i]["salesPerson"]] = (totalProfitBySalesPerson[profitBySalesPerson[i]["salesIndividual"]] || 0) + profitBySalesPerson[i]["salesIndividual"]
+// }
+
 var totalSalesPerMonth = {};
 for (var i = 0, j = monthlySales.length; i < j; i++) {
     totalSalesPerMonth[monthlySales[i]] = (totalSalesPerMonth[monthlySales[i]] || 0) +1;
@@ -39,40 +55,37 @@ for (var i = 0, j = salesBySalesPerson.length; i < j; i++) {
     totalSalesPerPerson[salesBySalesPerson[i]] = (totalSalesPerPerson[salesBySalesPerson[i]] || 0) +1;
 }
 
-const totalProfitBySalesPerson = {};
-for (var i = 0, j = profitBySalesPerson.length; i  < j; i++) {
-    totalProfitBySalesPerson[profitBySalesPerson[i]["salesPerson"]] = (totalProfitBySalesPerson[profitBySalesPerson[i]["salesIndividual"]] || 0) + profitBySalesPerson[i]["salesIndividual"]
-}
-
-let maxMonth = ""
-let maxMonthValue = "0";
-for (key in totalSalesPerMonth) {
-    if (totalSalesPerMonth[key] > maxMonthValue) {
-        maxMonth = key;
-        maxMonthValue = totalSalesPerMonth[key];
-    }
-
-}
-
-let maxSalesPerson = ""
-let maxSalesPersonValue = "0";
-for (key in totalSalesPerPerson) {
-    if (totalSalesPerPerson[key] > maxSalesPersonValue) {
-        maxSalesPerson = key;
-        maxSalesPersonValue = totalSalesPerPerson[key];
-    }
-}
 
 
-console.log(grossProfit);
-console.log(monthlySales);
-console.log(salesBySalesPerson);
-console.log(profitBySalesPerson);
-console.log(totalSalesPerMonth);
-console.log(totalSalesPerPerson);
-console.log(totalProfitBySalesPerson);
-console.log(maxMonth);
-console.log(maxMonthValue);
-console.log(maxSalesPerson);
-console.log(maxSalesPersonValue);
+// let maxMonth = ""
+// let maxMonthValue = "0";
+// for (key in totalSalesPerMonth) {
+//     if (totalSalesPerMonth[key] > maxMonthValue) {
+//         maxMonth = key;
+//         maxMonthValue = totalSalesPerMonth[key];
+//     }
+
+// }
+
+// let maxSalesPerson = ""
+// let maxSalesPersonValue = "0";
+// for (key in totalSalesPerPerson) {
+//     if (totalSalesPerPerson[key] > maxSalesPersonValue) {
+//         maxSalesPerson = key;
+//         maxSalesPersonValue = totalSalesPerPerson[key];
+//     }
+// }
+
+
+//console.log("grossProfit", grossProfit);
+//console.log(monthlySales);
+//console.log("salesBySalesPerson", salesBySalesPerson);
+console.log("profitBySalesPerson", profitBySalesPerson);
+//console.log(totalSalesPerMonth);
+//console.log("totalSalesPerPerson", totalSalesPerPerson);
+console.log("totalProfitBySalesPerson", totalProfitBySalesPerson);
+//console.log(maxMonth);
+//console.log(maxMonthValue);
+//console.log(maxSalesPerson);
+//console.log(maxSalesPersonValue);
 
